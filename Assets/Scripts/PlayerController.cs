@@ -9,11 +9,20 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 20f;
     public float groundHeight = 2f;
     public bool isGrounded = false;
+    public float jumpGroundThreshold = 0.2f;
+    public float maxAcceleration = 10f;
+    public float currentAcceleration = 10f;
+    public float maxHorizontalVelocity = 100f;
+    public float distanceCovered = 0f;
 
     // Update is called once per frame
     void Update()
     {
-        if (isGrounded)
+        Vector2 pos = transform.position;
+        float groundDistance = Mathf.Abs(pos.y - groundHeight);
+
+        bool playerCanJump = isGrounded || groundDistance <= jumpGroundThreshold;
+        if (playerCanJump)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -30,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded)
         {
             newPos.y = newPos.y + velocity.y * Time.fixedDeltaTime;
-            newPos.y = newPos.y - gravity * Time.fixedDeltaTime;
+            velocity.y = velocity.y - gravity * Time.fixedDeltaTime;
 
             bool playerReachedGround = newPos.y <= groundHeight;
             if (playerReachedGround)
@@ -40,6 +49,20 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (isGrounded)
+        {
+            float velocityRatio = velocity.x / maxHorizontalVelocity;
+            currentAcceleration = maxAcceleration * (1 - velocityRatio);
+
+            velocity.x += currentAcceleration * Time.fixedDeltaTime;
+            bool exceededMaxVelocity = velocity.x >= maxHorizontalVelocity;
+            if (exceededMaxVelocity)
+            {
+                velocity.x = maxHorizontalVelocity;
+            }
+        }
+
         transform.position = newPos;
+        distanceCovered += velocity.x * Time.fixedDeltaTime;
     }
 }
