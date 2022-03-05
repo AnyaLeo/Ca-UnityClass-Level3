@@ -1,8 +1,8 @@
 ## Unity C# Class
 
 ### What is this?
-These are files for a Unity C# class for middle-school students.
-We are developing a 2D Unity game with a stickman who can balance, walk, do a bunch of cool things and (most importantly) be affected by physics.
+These are files for a Unity C# class for middle- and high-school students.
+We are developing an infinite runner 2D game.
 
 ### How to download the game after a lesson:
 
