@@ -1196,7 +1196,8 @@ MonoBehaviour:
   createdTerrains:
   - {fileID: 2044499365}
   - {fileID: 285042972}
-  speed: 5
+  speed: 0
+  terrainVisible: 0
 --- !u!1 &1769225620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,7 +1654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 615309379480015700, guid: a623f140155331a439e42f6563735325, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.510002
+      value: 38.5
       objectReference: {fileID: 0}
     - target: {fileID: 615309379480015700, guid: a623f140155331a439e42f6563735325, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1710,7 +1711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8577856045444226564, guid: f73bedbb790e6394aa2dcd8248946201, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.99
+      value: -7.000002
       objectReference: {fileID: 0}
     - target: {fileID: 8577856045444226564, guid: f73bedbb790e6394aa2dcd8248946201, type: 3}
       propertyPath: m_LocalPosition.y
