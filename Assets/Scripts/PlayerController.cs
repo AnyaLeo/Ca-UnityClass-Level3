@@ -15,6 +15,17 @@ public class PlayerController : MonoBehaviour
     public float maxHorizontalVelocity = 100f;
     public float distanceCovered = 0f;
 
+    Vector2 rayOrigin;
+    Vector2 rayDirection;
+    public float rayDistance = 2.5f;
+
+    Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -27,7 +38,8 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 isGrounded = false;
-                velocity.y = jumpForce;
+
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
         }
     }
@@ -41,12 +53,12 @@ public class PlayerController : MonoBehaviour
             newPos.y = newPos.y + velocity.y * Time.fixedDeltaTime;
             //velocity.y = velocity.y - gravity * Time.fixedDeltaTime;
 
-            bool playerReachedGround = newPos.y <= groundHeight;
+            /*bool playerReachedGround = newPos.y <= groundHeight;
             if (playerReachedGround)
             {
                 newPos.y = groundHeight;
                 isGrounded = true;
-            }
+            }*/
         }
 
         if (isGrounded)
@@ -62,7 +74,26 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        rayOrigin = new Vector2(newPos.x, newPos.y);
+        rayDirection = Vector2.down;
+        RaycastHit2D objectHit = Physics2D.Raycast(rayOrigin, rayDirection, rayDistance, LayerMask.GetMask("Ground"));
+        bool didRayHitSomething = objectHit.collider != null;
+
+        if (didRayHitSomething)
+        {
+            isGrounded = true;
+        } 
+        else
+        {
+            isGrounded = false;
+        }
+
         transform.position = newPos;
         distanceCovered += velocity.x * Time.fixedDeltaTime;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green);
     }
 }
