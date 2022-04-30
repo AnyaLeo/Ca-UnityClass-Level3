@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded)
         {
             newPos.y = newPos.y + velocity.y * Time.fixedDeltaTime;
-            velocity.y = velocity.y - gravity * Time.fixedDeltaTime;
+            //velocity.y = velocity.y - gravity * Time.fixedDeltaTime;
 
             bool playerReachedGround = newPos.y <= groundHeight;
             if (playerReachedGround)
