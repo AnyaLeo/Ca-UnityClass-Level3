@@ -21,9 +21,12 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
 
+    Animator anim;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,6 +62,8 @@ public class PlayerController : MonoBehaviour
                 newPos.y = groundHeight;
                 isGrounded = true;
             }*/
+
+            anim.Play("Player_Jump");
         }
 
         if (isGrounded)
@@ -72,6 +77,8 @@ public class PlayerController : MonoBehaviour
             {
                 velocity.x = maxHorizontalVelocity;
             }
+
+            anim.Play("Player_Run");
         }
 
         rayOrigin = new Vector2(newPos.x, newPos.y);
