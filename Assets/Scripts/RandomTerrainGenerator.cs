@@ -12,7 +12,7 @@ public class RandomTerrainGenerator : MonoBehaviour
 
     private Camera cam;
 
-    GameObject lastTerrain;
+    public GameObject lastTerrain;
     float lastTerrainLength;
 
     public bool terrainVisible;
