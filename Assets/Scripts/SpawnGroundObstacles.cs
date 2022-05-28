@@ -59,12 +59,16 @@ public class SpawnGroundObstacles : MonoBehaviour
 
         // get the index for a specific point
         int pointsTotal = lastTerrainSprite.spline.GetPointCount();
-        int randomPoint = Random.Range(0, pointsTotal);
+        int randomPoint = Random.Range(1, pointsTotal-1);
 
         // get the position for that specific point
         Vector3 randomPointPos = lastTerrainSprite.spline.GetPosition(randomPoint);
+        randomPointPos = terrainGen.lastTerrain.transform.TransformPoint(randomPointPos);
 
         // 2) Spawn the cactus at that position
         GameObject newObstacle = Instantiate(obstacle, randomPointPos, Quaternion.identity);
+
+        GroundObstacle obstacleScript = newObstacle.GetComponent<GroundObstacle>();
+        obstacleScript.speed = terrainGen.speed;
     }
 }
