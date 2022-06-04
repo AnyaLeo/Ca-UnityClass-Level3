@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpawnTime: 1
-  maxSpawnTime: 4
+  maxSpawnTime: 2.8
   obstacle: {fileID: 4851783877118556886, guid: 311b876541ea0cb409398f898bfde830, type: 3}
 --- !u!1 &1029350577
 GameObject:
@@ -1272,7 +1272,7 @@ MonoBehaviour:
   createdTerrains:
   - {fileID: 2044499365}
   - {fileID: 285042972}
-  speed: 2
+  speed: 16
   lastTerrain: {fileID: 0}
   terrainVisible: 0
 --- !u!1 &1769225620
@@ -1595,6 +1595,7 @@ GameObject:
   - component: {fileID: 1941491491}
   - component: {fileID: 1941491492}
   - component: {fileID: 1941491493}
+  - component: {fileID: 1941491494}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1679,9 +1680,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21280e124eea534da5ccc8617f96fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 400
+  gravity: 450
   velocity: {x: 0, y: 0}
-  jumpForce: 35
+  jumpForce: 40
   groundHeight: 2
   isGrounded: 0
   jumpGroundThreshold: 0.2
@@ -1714,7 +1715,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.19, y: 4.86}
+  m_Size: {x: 2.09, y: 4.86}
   m_EdgeRadius: 0
 --- !u!50 &1941491492
 Rigidbody2D:
@@ -1756,6 +1757,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1941491494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941491487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b558296bf3a6604b88692677ccaf0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2043701155
 GameObject:
   m_ObjectHideFlags: 0

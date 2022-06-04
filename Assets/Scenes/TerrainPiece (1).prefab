@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 615309379480015701}
   - component: {fileID: 615309379480015702}
   - component: {fileID: 615309379480015723}
+  - component: {fileID: -2948174931077662306}
   m_Layer: 7
   m_Name: TerrainPiece (1)
   m_TagString: Untagged
@@ -247,3 +248,15 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &-2948174931077662306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615309379480015703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d40af54394cb442aabd0c19d4000fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

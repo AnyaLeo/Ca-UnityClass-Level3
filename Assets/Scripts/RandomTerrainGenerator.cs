@@ -31,7 +31,10 @@ public class RandomTerrainGenerator : MonoBehaviour
     {
         for (int i = 0; i < createdTerrains.Count; i++)
         {
-            createdTerrains[i].transform.Translate(Vector3.left * speed * Time.deltaTime);
+            if (createdTerrains[i] != null)
+            {
+                createdTerrains[i].transform.Translate(Vector3.left * speed * Time.deltaTime);
+            }
         }
 
         //terrainVisible = IsLastTerrainVisible();
